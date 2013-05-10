@@ -15,3 +15,18 @@ class Device(models.Model):
     mode   = models.IntegerField(choices=DEV_MODES)
     remark = models.TextField()
     owners = models.ManyToManyField(User)
+
+
+class DictKey(models.Model):
+    name    = models.CharField(max_length=256)
+    
+    def __unicode__(self):
+        return self.name
+    
+    
+class DictValue(models.Model):
+    value   = models.CharField(max_length=256)
+    key     = models.ForeignKey(DictKey) 
+
+    def __unicode__(self):
+        return self.value

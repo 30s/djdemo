@@ -1,5 +1,8 @@
-from django.http import HttpResponse
+from django.shortcuts import render_to_response
+
+from djdemo.models import DictKey
 
 
 def profile(request):
-    return HttpResponse('hello world')
+    ctx = {'keys': DictKey.objects.all()}
+    return render_to_response('xpg_qa.html', ctx)

@@ -7,5 +7,14 @@ class DeviceAdmin(admin.ModelAdmin):
     list_display = ('name', 'serial', 'mode', 'remark')
 
 
-admin.site.register(Device, DeviceAdmin)
+class DictKeyAdmin(admin.ModelAdmin):
+    list_display = ('name', )
 
+
+class DictValueAdmin(admin.ModelAdmin): 
+    list_display = ('key', 'value')
+
+
+admin.site.register(Device, DeviceAdmin)
+admin.site.register(DictKey, DictKeyAdmin)
+admin.site.register(DictValue, DictValueAdmin)
